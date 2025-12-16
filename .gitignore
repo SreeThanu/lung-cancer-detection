@@ -1,0 +1,17 @@
+# Datasets
+data/
+data/**
+
+# Models
+*.pth
+*.pt
+
+# Results
+results/
+experiments/
+
+# Environment
+lungcancer/
+venv/
+env/
+

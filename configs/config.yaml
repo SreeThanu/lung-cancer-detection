@@ -1,0 +1,79 @@
+# ==============================================================
+# Configuration file for 3D Swin Transformer Lung Cancer Detection
+# ==============================================================
+
+# --------------------------------------------------------------
+# Paths
+# --------------------------------------------------------------
+paths:
+  root_dir: "data/"
+  raw_data: "data/raw/"
+  processed_data: "data/processed/"
+  roi_data: "data/roi_patches/"
+  annotations: "/Users/sreethanubhuvaneshgk/Downloads/desktop/home_folder/lungcancer/annotations.csv"
+
+
+# --------------------------------------------------------------
+# Preprocessing
+# --------------------------------------------------------------
+preprocessing:
+  hu_min: -1000              # Minimum HU value for clipping
+  hu_max: 400                # Maximum HU value for clipping
+  target_spacing: [1.0, 1.0, 1.0]  # mm voxel resampling target (if applied later)
+  roi_size: [64, 64, 64]     # 3D patch size around each nodule
+  lung_segmentation_threshold: -320
+
+# --------------------------------------------------------------
+# Data Augmentation
+# --------------------------------------------------------------
+augmentation:
+  rotation_range: 15         # ± degrees
+  zoom_range: [0.9, 1.1]
+  flip_probability: 0.5
+  noise_std: 0.01            # Gaussian noise standard deviation
+
+# --------------------------------------------------------------
+# Model Configuration
+# --------------------------------------------------------------
+model:
+  name: "swin_transformer_3d"
+  embed_dim: 48              # Base embedding dimension
+  depths: [2, 2, 6, 2]       # Swin Transformer stage depths
+  num_heads: [3, 6, 12, 24]  # Attention heads per stage
+  dropout: 0.2
+
+# --------------------------------------------------------------
+# Detection Head Configuration
+# --------------------------------------------------------------
+detection:
+  num_classes: 2             # Benign / Malignant
+
+# --------------------------------------------------------------
+# Malignancy Head Configuration
+# --------------------------------------------------------------
+malignancy:
+  hidden_dim: 256            # Hidden layer size for malignancy classifier
+
+# --------------------------------------------------------------
+# Training Configuration
+# --------------------------------------------------------------
+training:
+  batch_size: 4
+  epochs: 50
+  learning_rate: 0.0001
+  train_split: 0.8           # 80% training, 20% validation
+
+# --------------------------------------------------------------
+# Hardware Settings
+# --------------------------------------------------------------
+hardware:
+  num_workers: 4
+  pin_memory: true
+
+# --------------------------------------------------------------
+# Logging & Output
+# --------------------------------------------------------------
+logging:
+  experiment_dir: "experiments/"
+  checkpoint_dir: "models/"
+  results_dir: "results/"

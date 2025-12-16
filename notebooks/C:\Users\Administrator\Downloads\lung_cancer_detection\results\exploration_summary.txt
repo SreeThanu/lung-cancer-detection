@@ -1,0 +1,28 @@
+
+Dataset: LUNA16 Lung Nodule Detection
+
+📊 Overview:
+  - Total annotations: 1186
+  - Unique patients: 601
+  - Nodules per patient: 1.97 ± 1.48
+
+📏 Nodule Characteristics:
+  - Mean diameter: 8.31 mm
+  - Diameter range: 3.25 - 32.27 mm
+  - Size categories:
+    • 3-10mm (Small): 905 (76.3%)
+    • 10-30mm (Medium): 279 (23.5%)
+    • >30mm (Large): 2 (0.2%)
+    • <3mm (Tiny): 0 (0.0%)
+
+✅ Data Quality:
+  - Missing values: 0
+  - Duplicate rows: 0
+  - Outliers detected: 103
+
+📁 Generated Visualizations:
+  ✓ Nodule size distribution
+  ✓ Malignancy distribution
+  ✓ Nodules per patient analysis
+  ✓ Spatial distribution (3D)
+  ✓ Sample CT scan with annotations

@@ -1,0 +1,4 @@
+git rm --cached -r data
+git rm --cached -r models
+git rm --cached -r results
+git rm --cached -r experiments
